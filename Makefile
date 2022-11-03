@@ -30,6 +30,9 @@ test: base64-test-11 base64-test-17
 	base64-test-11
 	base64-test-17
 
+static: base64-11.o
+	ar rvs base64-11.a base64-11.o
+
 base64-test-11: base64-11.o test-11.o
 	g++ base64-11.o test-11.o -o $@
 
