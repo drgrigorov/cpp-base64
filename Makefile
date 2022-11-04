@@ -33,6 +33,9 @@ test: base64-test-11 base64-test-17
 static: base64-11.o
 	ar rvs base64-11.a base64-11.o
 
+static32: base64-11-32.o
+	ar rvs base64-11.a base64-11.o
+
 base64-test-11: base64-11.o test-11.o
 	g++ base64-11.o test-11.o -o $@
 
@@ -41,6 +44,9 @@ base64-test-17: base64-17.o test-17.o
 
 base64-11.o: base64.cpp base64.h
 	g++ -std=c++11 $(WARNINGS) -c base64.cpp -o base64-11.o
+
+base64-11-32.o: base64.cpp base64.h
+	g++ -std=c++11 -m32 $(WARNINGS) -c base64.cpp -o base64-11.o
 
 base64-17.o: base64.cpp base64.h
 	g++ -std=c++17 $(WARNINGS) -c base64.cpp -o base64-17.o
